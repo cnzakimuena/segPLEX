@@ -1,0 +1,34 @@
+image1 = zeros(16,16);
+image1(8,:) = 10;
+[nbl,nbc] = size(image1);
+%% etape 1  : convertir les gradients en coûts
+    image1 = -image1;
+%% etape 2 : faire une translation pour éviter que le plus petit ensemble soit vide
+    trans = sum(image1(nbl,:))/nbc+1;
+    image1 = image1-trans;
+%% etape 3  : transformation (soustraction de la ligne du bas)
+    image2 = [image1(2:nbl,:);zeros(1,nbc)];
+    image1 = image1-image2;
+%% etape4  : terminalWeights
+    terminalWeights = zeros(nbl*nbc,2);
+    ind_positiveI = find(image1>=0);
+    ind_negativeI = find(image1<0);
+    terminalWeights(ind_positiveI,1) = image1(ind_positiveI);
+    terminalWeights(ind_negativeI,2) = image1(ind_negativeI);
+ %% etape5 : edge sur la ligne du dessous
+
+ imageInd = reshape (1:nbl*nbc,[nbl,nbc]);
+ link1 = cat(3,imageInd(1:nbl-1,:),imageInd(2:nbl,:));
+ link11 = [reshape(link1,[size(link1,1)*size(link1,2),2,1]) ,100000* ones(size(link1,1)*size(link1,2),1)];
+ %% etape6 : edge sur les colonnes voisines
+ deltaX = 2;
+ link2_ul = imageInd(1:nbl-deltaX,1:nbc-deltaX);
+ link2_ur = imageInd(1:nbl-deltaX,deltaX:nbc);
+ link2_dr = imageInd(deltaX:nbl,deltaX:nbc);
+ link2_dl = imageInd(deltaX:nbl,1:nbc-deltaX);
+ 
+
+    
+    
+    
+    
