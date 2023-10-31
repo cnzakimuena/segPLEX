@@ -4,8 +4,7 @@ function call_segPLEX()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Name - call_segPLEX()
 % Creation Date - 15th January 2021
-% Author - Charles Belanger Nzakimuena
-% Website - https://www.ibis-space.com/
+% Author - C. M. Belanger Nzakimuena
 %
 % Description - 
 %   PRESEG performs initial segmentation prior to refined segmentation
@@ -31,7 +30,7 @@ function call_segPLEX()
 % License - MIT
 %
 % Change History -
-%                   15th January 2020 - Creation by Charles Belanger Nzakimuena
+%                   15th January 2020 - Creation by C. M. Belanger Nzakimuena
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
